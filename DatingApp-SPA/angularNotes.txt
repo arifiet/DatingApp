@@ -1,0 +1,2 @@
+ngIf is a Strucutral Directive, Strucutral Directives starts with * e.g *ngIf,*ngFor etc,
+they have the ability to directly change the DOM
