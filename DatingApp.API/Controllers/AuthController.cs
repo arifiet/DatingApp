@@ -51,6 +51,7 @@ namespace DatingApp.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto dto) 
         {
+            //throw new Exception("Dummy ExCeption");
            var userFromRepo= await _repo.Login(dto.UserName.ToLower(),dto.Password);
            if(userFromRepo==null)
             return Unauthorized();
