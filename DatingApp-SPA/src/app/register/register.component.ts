@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from './../_services/auth.service';
+import { AlertifyService } from './../_services/alertify.service';
 
 @Component({
   selector: 'app-register',
@@ -11,17 +12,17 @@ export class RegisterComponent implements OnInit {
   // we use @Input for communication bw parent to child component, here register is child of home
   @Output() cancelRegister = new EventEmitter();
   model: any = {};
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
   }
 
   register() {
     this.authService.register(this.model).subscribe(() => {
-      console.log('Registrion Successfull');
+      this.alertify.success('Registrion Successfull');
       console.log(this.model);
     }, error => {
-      console.log(error);
+      this.alertify.error(error);
     });
   }
 
