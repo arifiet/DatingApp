@@ -10,6 +10,7 @@ import { User } from '../_models/user';
 //   })
 // }; // this is not reqd as in app.module.ts we have added JwtModule in imports to take care of token
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,4 +30,7 @@ export class UserService {
     return this.http.get<User>(this.baseUrl + 'users/' + id);
   }
 
+  updateUser(id: number, user: User) {
+    return this.http.put(this.baseUrl + 'users/' + id, user);
+  }
 }
