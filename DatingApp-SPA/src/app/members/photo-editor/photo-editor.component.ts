@@ -56,6 +56,12 @@ export class PhotoEditorComponent implements OnInit {
           isMain: res.isMain
         };
         this.photos.push(photo);
+        if (photo.isMain) {
+          // the photo will be returned as main from API if it is the first photo of a user
+          this.authService.changeMemberPhoto(photo.url);
+          this.authService.currentUser.photoUrl = photo.url;
+          localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
+        }
       }
     };
 
@@ -69,7 +75,7 @@ export class PhotoEditorComponent implements OnInit {
       // this.getMemberPhotoChange.emit(photo.url); used earlier before putting photo on Nav Component
       this.authService.changeMemberPhoto(photo.url);
       this.authService.currentUser.photoUrl = photo.url;
-      localStorage.setItem('user', JSON.stringify(this.authService.currentUser)); 
+      localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
       // the above will override the current user with the latest values
       console.log('Successfully set to main');
 
@@ -90,6 +96,6 @@ export class PhotoEditorComponent implements OnInit {
       });
     });
   }
-  
+
 
 }
