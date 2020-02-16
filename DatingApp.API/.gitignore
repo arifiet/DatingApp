@@ -4,3 +4,4 @@ obj
 *.db
 DatingApp.API/datingapp.db-wal
 DatingApp.API/datingapp.db-shm
+wwwroot
