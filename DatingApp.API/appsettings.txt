@@ -1,0 +1,22 @@
+{
+  "AppSettings": {
+    "Token": "super secret key"
+  },
+
+  "ConnectionStrings":{
+    "DefaultConnection":"Server=.; Database=datingapp; User Id=sa; password=Aurigo@123"
+  }, // this is removed for deploying to Azure
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "CloudinarySettings": {
+    "CloudName": "dpqtcayax",
+    "ApiKey": "238876148834383",
+    "ApiSecret":"2mDKcSa_LfwJBsoR4tfe20mgnNc"
+  }
+}
